@@ -1,0 +1,11 @@
+---
+# Group_vars/cisco.yaml - Variables for all hosts
+
+# Username for SSH authentication
+ansible_user: admin
+# Password for SSH authentication
+ansible_password: cisco12
+# Operating system of the Cisco devices
+ansible_network_os: cisco.ios.ios
+# Connection method for Ansible (network_cli)
+ansible_connection: ansible.netcommon.network_cli
