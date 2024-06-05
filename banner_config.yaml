@@ -1,0 +1,29 @@
+# Playbook for configuring banners on Cisco devices
+- name: "Configure Banners"
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "Configure MOTD Banner"
+      cisco.ios.ios_banner:
+        banner: motd
+        text: |
+          This is my banner configured
+          by ansible test lab with gns3
+        state: present  # Ensure MOTD banner is configured
+
+    - name: "Remove login Banner"
+      cisco.ios.ios_banner:
+        banner: login
+        state: absent  # Ensure login banner is removed
+
+    - name: "Remove exec Banner"
+      cisco.ios.ios_banner:
+        banner: exec
+        state: absent  # Ensure exec banner is removed
+
+      register: banner_result  # Register the result for debugging
+
+    - name: "Display Banner Configuration Result"
+      ansible.builtin.debug:
+        var: banner_result  # Display the result of banner configuration
