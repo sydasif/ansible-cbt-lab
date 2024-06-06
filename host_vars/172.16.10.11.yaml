@@ -1,0 +1,3 @@
+---
+hostname: Core
+ntp: "2.2.2.2"

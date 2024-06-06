@@ -1,0 +1,9 @@
+---
+- name: "Load Variable"
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+    - name: Print Variable
+      ansible.builtin.debug:
+        msg: "{{ hostvars[ansible_host] }}"
