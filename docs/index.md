@@ -9,7 +9,7 @@ Learn Ansible Network Automation with GNS3 and Cisco devices.
 
 
 ```{warning}
-This project is under development.
+This is a quick start guide for Ansible and is under development.
 ```
 
 ```{toctree}
