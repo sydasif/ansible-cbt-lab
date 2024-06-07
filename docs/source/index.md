@@ -17,4 +17,5 @@ This is a quick start guide for Ansible and is under development.
 :maxdepth: 2
 
 01_introduction/index
+02_variables/index
 ```
