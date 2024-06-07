@@ -1,0 +1,14 @@
+---
+- name: "Get ios facts"
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: "Get config from ios_facts"
+      cisco.ios.ios_facts:
+        gather_subset: all
+
+    - name: "Display debug message"
+      ansible.builtin.debug:
+        msg: "The {{ ansible_net_hostname }} has {{ ansible_net_iostype }} platform"
