@@ -7,4 +7,5 @@ Variables are key in both programming and configuration management. They help ma
 :maxdepth: 1
 
 01_vars
+02_acc_vars
 ```
