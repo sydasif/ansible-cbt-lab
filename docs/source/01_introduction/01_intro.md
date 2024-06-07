@@ -515,6 +515,4 @@ r1                         : ok=2    changed=0    unreachable=0    failed=0    s
 
 This command tells Ansible to run the playbook (`playbook.yml`) using the specified inventory file.
 
-### Conclusion
-
 Creating and running a simple Ansible playbook is a powerful way to automate tasks on network devices. This basic playbook gathers facts from an IOS device and displays them, providing a foundation you can build on for more complex automation workflows. Whether you're managing a small lab or a large production network, Ansible playbooks can help streamline your operations and reduce manual configuration efforts.

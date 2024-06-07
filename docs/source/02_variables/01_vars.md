@@ -168,7 +168,7 @@ Once defined, group and host variables can be used in your playbooks like any ot
 
 Output:
 
-```json
+```bash
 [zolo@localhost ansible-cbt-lab]$ ansible-playbook load_vars.yaml 
 
 PLAY [Load Variable] ******************************************************************************************************
@@ -285,7 +285,7 @@ PLAY RECAP *********************************************************************
 172.16.10.14               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ```
 
-### Analyzing the Playbook Output and Variable Precedence
+### Analyzing the Variable Precedence
 
 In the example playbook output, we see how Ansible processes variables for each host. The `ansible.builtin.debug` task prints out all variables available to each host. Let’s analyze the variables for two hosts, `172.16.10.11` and `172.16.10.14`.
 
@@ -321,7 +321,5 @@ In the example playbook output, we see how Ansible processes variables for each 
     - Final variables for `172.16.10.14` include all group variables defined above, with `ntp: "1.1.1.1"` coming from the `router` group.
 
 The playbook output confirms that Ansible correctly combines and overrides variables based on their precedence. Host variables have the highest precedence, followed by group variables. Understanding this precedence ensures accurate and predictable configurations across your hosts.
-
-### Conclusion
 
 Variables in Ansible are crucial for managing dynamic configurations. By understanding how Ansible processes and applies variables from different sources, such as group and host variables, you can ensure that your playbooks are both flexible and maintainable. Mastering the precedence and combination of variables helps you achieve consistent and accurate configurations across all your managed hosts.
