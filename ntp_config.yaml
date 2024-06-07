@@ -1,0 +1,19 @@
+---
+- name: "Configure NTP"
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: "Configure NTP on Router"
+      vars:
+        ntp_server:
+          - "1.1.1.1"
+          - "2.2.2.2"
+          - "3.3.3.3"
+          - "4.4.4.4"
+      cisco.ios.ios_ntp_global:
+        config:
+          peers:
+            - peer: "{{ item }}"
+              version: 2
+      loop: "{{ ntp_server }}"

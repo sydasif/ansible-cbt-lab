@@ -8,4 +8,5 @@ Variables are key in both programming and configuration management. They help ma
 
 01_vars
 02_acc_vars
+03_loop
 ```
