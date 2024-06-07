@@ -1,0 +1,9 @@
+---
+- name: "Load Variable"
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: Print Variable
+      ansible.builtin.debug:
+        msg: "{{ hostvars[ansible_host]['ospf']['network'] }}"
