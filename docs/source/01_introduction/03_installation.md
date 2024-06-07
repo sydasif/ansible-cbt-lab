@@ -11,6 +11,16 @@ sudo apt install ansible
 
 These steps ensure that your Ubuntu system is updated, necessary software properties are installed, the Ansible repository is added, and Ansible itself is installed, allowing you to start using Ansible for automation tasks.
 
+Ansible is updated once every six months, so it's best to install it in a virtual environment.
+
+```bash
+virtualenv .venv
+source .venv/bin/activate
+python3 -m pip install ansible
+
+# Use `deactivate` command to exit
+```
+
 To ensure that your Ansible installation is successful and operational, you can run the following commands in your terminal:
 
 ```bash
@@ -46,7 +56,9 @@ As of Ansible 2.6, you can use the top-level Ansible parameter `become: yes` wit
 
 ### Establish a Manual Connection to a Managed Node
 
-To confirm your credentials, connect to a network device manually and retrieve its configuration. Replace the sample user and device name with your real credentials. For example, for a router:
+To run an ad-hoc command or Ansible playbook for the first time, it is mandatory to establish a manual SSH connection to the managed nodes to confirm your credentials. This involves connecting to a network device manually and retrieving its configuration. This manual connection also establishes the authenticity of the network device by adding its RSA key fingerprint to your list of known hosts.
+
+Replace the sample user and device name with your real credentials. For example, for a router:
 
 ```bash
 zolo@u22s:~$ ssh admin@172.16.10.11

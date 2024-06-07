@@ -27,9 +27,6 @@ zolo@u22s:~/ansible-networking-lab$ ansible-config view
 inventory=./inventory.cfg
 gathering=explicit
 host_key_checking=false
-deprecation_warnings=false
-interpreter_python=auto
-retry_files_enabled=false
 ```
 
 This output reflects the exact settings in the `ansible.cfg` file for the current directory.
