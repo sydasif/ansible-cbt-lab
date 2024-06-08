@@ -57,7 +57,7 @@ This allows the task to apply the configuration for each NTP server individually
 To execute the playbook, you would use the following command:
 
 ```bash
-(.venv) [zolo@localhost ansible-cbt-lab]$ ansible-playbook ntp_config.yaml 
+ansible-playbook ntp_config.yaml 
 ```
 
 ### Playbook Output
@@ -65,15 +65,15 @@ To execute the playbook, you would use the following command:
 The playbook output might resemble this:
 
 ```plaintext
-PLAY [Configure NTP] *********************************************************************
+PLAY [Configure NTP] *******************************************************************
 
-TASK [Configure NTP on Router] ************************************************************
+TASK [Configure NTP on Router] *********************************************************
 changed: [172.16.10.14] => (item=1.1.1.1)
 changed: [172.16.10.14] => (item=2.2.2.2)
 changed: [172.16.10.14] => (item=3.3.3.3)
 changed: [172.16.10.14] => (item=4.4.4.4)
 
-PLAY RECAP *******************************************************************************
+PLAY RECAP *****************************************************************************
 172.16.10.14               : ok=1    changed=1    unreachable=0    failed=0    skipped=0
 ```
 
@@ -91,3 +91,90 @@ PLAY RECAP *********************************************************************
   - `skipped=0`: No tasks were skipped.
 
 This example demonstrates the use of loops in Ansible to efficiently configure multiple items, simplifying the management of network devices.
+
+## Loop Through Device Information
+
+To process device information, we use the `ios_facts` module, which collects facts from a device running IOS.
+
+Here's how it works:
+
+```yaml
+---
+- name: "Playbook: Loop IP Addr"
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: "Get facts from device"
+      cisco.ios.ios_facts:
+        gather_subset: interfaces
+
+    - name: "Print device information"
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts['net_hostname'] }} has IP Addr {{ item }}"
+      loop: "{{ ansible_facts['net_all_ipv4_addresses'] }}"
+```
+
+### Playbook Explanation
+
+This playbook, named "Loop IP Addr," is designed to run on a host group named "router." The `gather_facts` option is set to `false` because we manually gather the necessary facts using the `ios_facts` module.
+
+#### Tasks
+
+1. **Get facts from device**
+
+   - The `cisco.ios.ios_facts` module is used to gather information from the device, specifically focusing on the `interfaces` subset.
+
+2. **Print device information**
+
+   - The `ansible.builtin.debug` module is used to print the device's hostname and its IP addresses.
+   - The `loop` directive iterates over the list of IP addresses stored in `ansible_facts['net_all_ipv4_addresses']`.
+
+### Understanding the Loop
+
+In the second task, the loop takes each IP address from the list `ansible_facts['net_all_ipv4_addresses']` and prints a message. The message includes the device's hostname and the current IP address (`{{ item }}`) from the loop. This way, each IP address of the device is printed along with the device's hostname.
+
+```
+PLAY [Playbook: Loop IP Addr] **********************************************************
+
+TASK [Get facts from device] ***********************************************************
+ok: [172.16.10.14]
+
+TASK [Print device information] ********************************************************
+ok: [172.16.10.14] => (item=9.9.9.10) => {
+    "msg": "R1 has IP Addr 9.9.9.10"
+}
+ok: [172.16.10.14] => (item=172.16.10.14) => {
+    "msg": "R1 has IP Addr 172.16.10.14"
+}
+ok: [172.16.10.14] => (item=192.168.71.139) => {
+    "msg": "R1 has IP Addr 192.168.71.139"
+}
+ok: [172.16.10.14] => (item=1.1.1.1) => {
+    "msg": "R1 has IP Addr 1.1.1.1"
+}
+
+PLAY RECAP *****************************************************************************
+172.16.10.14               : ok=2    changed=0    unreachable=0    failed=0    skipped=0
+```
+
+As per documentation, we can modify the playbook:
+
+```yaml
+---
+- name: "Playbook: Loop IP Addr"
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: "Get facts from device"
+      cisco.ios.ios_facts:
+        gather_subset: interfaces
+
+    - name: "Print device information"
+      ansible.builtin.debug:
+        msg: "{{ ansible_net_hostname }} has IP Addr {{ item }}"
+      loop: "{{ ansible_net_all_ipv4_addresses }}"
+```
+
+This playbook demonstrates how to gather device information using the `ios_facts` module and print each IP address associated with a device. By utilizing the `debug` module and looping through the IP addresses, the playbook provides a clear and concise way to display critical network information for devices running IOS.
