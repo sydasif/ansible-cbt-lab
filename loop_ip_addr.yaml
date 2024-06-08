@@ -1,0 +1,15 @@
+---
+
+- name: "Playbook: Loop IP Addr"
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: "Get facts from device"
+      cisco.ios.ios_facts:
+        gather_subset: interfaces
+
+    - name: "Print device information"
+      ansible.builtin.debug:
+        msg: "{{ ansible_net_hostname }} has IP Addr {{ item }}"
+      loop: "{{ ansible_net_all_ipv4_addresses }}"
