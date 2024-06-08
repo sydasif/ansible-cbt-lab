@@ -6,7 +6,8 @@ Variables are key in both programming and configuration management. They help ma
 ```{toctree}
 :maxdepth: 1
 
-01_vars
-02_acc_vars
-03_loop
+01_introduction
+02_inventory
+03_nested
+04_play_var
 ```
