@@ -52,7 +52,7 @@ ansible-playbook playbook.yml
 
 When you run the playbook, you might see output like this:
 
-```json
+```
 zolo@u22s:~/ansible-networking-lab$ ansible-playbook playbook.yml
 
 PLAY [Playbook-1: Get ios facts] ***************

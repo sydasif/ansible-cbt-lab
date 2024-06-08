@@ -42,7 +42,7 @@ Go, another programming language, is known for its performance and efficiency. I
 
 ## How Ansible Stands in Network Automation
 
-Ansible is a powerful automation tool widely used in network automation. In this chapter, we’ll explore why Ansible is favored by many network engineers and how it simplifies automation tasks.
+Ansible is a powerful automation tool widely used in network automation. In this section, we’ll explore why Ansible is favored by many network engineers and how it simplifies automation tasks.
 
 ### Introduction to Ansible
 
@@ -58,7 +58,7 @@ Ansible uses a simple, human-readable language (YAML) to describe automation tas
 
 ### Ansible Basic Components
 
-To effectively use Ansible, it's essential to understand its key components. This chapter will break down the fundamental elements that make up Ansible.
+To effectively use Ansible, it's essential to understand its key components. This section will break down the fundamental elements that make up Ansible.
 
 #### Control Node
 
