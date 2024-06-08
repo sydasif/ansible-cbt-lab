@@ -1,6 +1,6 @@
 ## Variables in Programming
 
-Variables in programming are symbolic names that store data values which can be changed during the execution of a program. They are essential for managing and manipulating data.
+Variables in programming are symbolic names that store data values that can change during the execution of a program. They are essential for managing and manipulating data.
 
 ### Key Characteristics of Variables
 
@@ -166,57 +166,18 @@ Once defined, group and host variables can be used in your playbooks like any ot
         msg: "{{ hostvars[inventory_hostname] }}"
 ```
 
-Output:
+### Example Output
 
-```bash
+```
+############### Omitted for brevity #################
+
 [zolo@localhost ansible-cbt-lab]$ ansible-playbook load_vars.yaml 
 
-PLAY [Load Variable] ******************************************************************************************************
+PLAY [Load Variable] **********************************************************************
 
-TASK [Print Variable] *****************************************************************************************************
+TASK [Print Variable] *********************************************************************
 ok: [172.16.10.11] => {
     "msg": {
-        "ansible_check_mode": false,
-        "ansible_config_file": "/home/zolo/ansible-cbt-lab/ansible.cfg",
-        "ansible_connection": "ansible.netcommon.network_cli",
-        "ansible_diff_mode": false,
-        "ansible_facts": {},
-        "ansible_forks": 5,
-        "ansible_inventory_sources": [
-            "/home/zolo/ansible-cbt-lab/inventory.cfg"
-        ],
-        "ansible_network_os": "cisco.ios.ios",
-        "ansible_password": "cisco12",
-        "ansible_playbook_python": "/usr/bin/python",
-        "ansible_run_tags": [
-            "all"
-        ],
-        "ansible_skip_tags": [],
-        "ansible_user": "admin",
-        "ansible_verbosity": 0,
-        "ansible_version": {
-            "full": "2.15.12",
-            "major": 2,
-            "minor": 15,
-            "revision": 12,
-            "string": "2.15.12"
-        },
-        "group_names": [
-            "core"
-        ],
-        "groups": {
-            "all": [
-                "172.16.10.11",
-                "172.16.10.14"
-            ],
-            "core": [
-                "172.16.10.11"
-            ],
-            "router": [
-                "172.16.10.14"
-            ],
-            "ungrouped": []
-        },
         "hostname": "Core",
         "inventory_dir": "/home/zolo/ansible-cbt-lab",
         "inventory_file": "/home/zolo/ansible-cbt-lab/inventory.cfg",
@@ -228,51 +189,8 @@ ok: [172.16.10.11] => {
 }
 ok: [172.16.10.14] => {
     "msg": {
-        "ansible_check_mode": false,
-        "ansible_config_file": "/home/zolo/ansible-cbt-lab/ansible.cfg",
-        "ansible_connection": "ansible.netcommon.network_cli",
-        "ansible_diff_mode": false,
-        "ansible_facts": {},
-        "ansible_forks": 5,
-        "ansible_inventory_sources": [
-            "/home/zolo/ansible-cbt-lab/inventory.cfg"
-        ],
-        "ansible_network_os": "cisco.ios.ios",
-        "ansible_password": "cisco12",
-        "ansible_playbook_python": "/usr/bin/python",
-        "ansible_run_tags": [
-            "all"
-        ],
-        "ansible_skip_tags": [],
-        "ansible_user": "admin",
-        "ansible_verbosity": 0,
-        "ansible_version": {
-            "full": "2.15.12",
-            "major": 2,
-            "minor": 15,
-            "revision": 12,
-            "string": "2.15.12"
-        },
-        "group_names": [
-            "router"
-        ],
-        "groups": {
-            "all": [
-                "172.16.10.11",
-                "172.16.10.14"
-            ],
-            "core": [
-                "172.16.10.11"
-            ],
-            "router": [
-                "172.16.10.14"
-            ],
-            "ungrouped": []
-        },
         "inventory_dir": "/home/zolo/ansible-cbt-lab",
-        "inventory_file": "/home/zolo/ansible-c
-
-bt-lab/inventory.cfg",
+        "inventory_file": "/home/zolo/ansible-cbt-lab/inventory.cfg",
         "inventory_hostname": "172.16.10.14",
         "inventory_hostname_short": "172.16.10.14",
         "ntp": "1.1.1.1",
@@ -280,9 +198,9 @@ bt-lab/inventory.cfg",
     }
 }
 
-PLAY RECAP ****************************************************************************************************************
-172.16.10.11               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-172.16.10.14               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+PLAY RECAP ********************************************************************************
+172.16.10.11               : ok=1    changed=0    unreachable=0    failed=0    skipped=0   
+172.16.10.14               : ok=1    changed=0    unreachable=0    failed=0    skipped=0   
 ```
 
 ### Analyzing the Variable Precedence
