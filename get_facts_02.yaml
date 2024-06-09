@@ -1,0 +1,9 @@
+---
+- name: "Get ios facts"
+  hosts: core
+  gather_facts: true
+
+  tasks:
+    - name: "Display debug message"
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"
