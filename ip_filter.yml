@@ -1,0 +1,20 @@
+---
+
+- name: Handling IP addresses
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ip_list:
+      - "10.0.0.72/24"
+      - "10.0.300.12"
+      - "192.168.15.15"
+      - "192.168.32.0/24"
+  tasks:
+    - name: Show information for network and ip
+      ansible.builtin.debug:
+        msg:
+          - "Check this Addr...........: {{ item }}"
+          - "A valid IP?...............: {{ item | ipaddr }}"
+          - "Just the IP...............: {{ item | ipaddr('address') }}"
+          - "Is this a network?........: {{ item | ipaddr('network') }}"
+      loop: "{{ ip_list }}"
