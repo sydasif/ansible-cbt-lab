@@ -38,4 +38,5 @@ This is a quick start guide for Ansible and is under development.
 01_introduction/index
 02_variables/index
 03_loop/index
+04_conditional/index
 ```
