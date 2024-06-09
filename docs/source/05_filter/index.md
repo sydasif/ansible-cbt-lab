@@ -8,4 +8,5 @@ Ansible filters allow us to filter and transform data within our playbooks. They
 :maxdepth: 1
 
 01_filter
+02_ip_filter
 ```
