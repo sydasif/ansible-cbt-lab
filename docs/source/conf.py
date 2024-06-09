@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Ansible Automation for Network Engineers'
+project = 'Ansible for Network Automation'
 copyright = '2024, Syed Asif'
 author = 'Syed Asif'
 
