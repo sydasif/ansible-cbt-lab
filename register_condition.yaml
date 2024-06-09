@@ -1,0 +1,16 @@
+- name: Check BGP status and configure if not running
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: Check BGP status
+      cisco.ios.ios_command:
+        commands: show ip bgp summary
+      register: bgp_status
+
+    - name: Configure BGP if not running
+      cisco.ios.ios_config:
+        lines:
+          - router bgp 65000
+          - neighbor 9.9.9.9 remote-as 65001
+      when: '"% BGP not active" in bgp_status.stdout'

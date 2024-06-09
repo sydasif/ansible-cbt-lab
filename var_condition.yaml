@@ -1,0 +1,19 @@
+- name: Configure network devices based on role
+  hosts: switch
+  vars:
+    device_role: spine
+
+  tasks:
+    - name: Configure spine switch
+      cisco.ios.ios_config:
+        lines:
+          - interface Ethernet1
+          - description Spine Switch
+      when: device_role == 'spine'
+
+    - name: Configure leaf switch
+      cisco.ios.ios_config:
+        lines:
+          - interface Ethernet1
+          - description Leaf Switch
+      when: device_role == 'leaf'

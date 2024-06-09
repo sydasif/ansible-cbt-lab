@@ -1,0 +1,15 @@
+- name: Ensure specific VLANs are present on switches
+  hosts: switches
+  gather_facts: false
+
+  tasks:
+    - name: Configure VLANs
+      cisco.ios.ios_config:
+        lines:
+          - vlan {{ item.id }}
+          - name {{ item.name }}
+      loop:
+        - { id: 10, name: 'Engineering' }
+        - { id: 20, name: 'HR' }
+        - { id: 30, name: 'Sales' }
+      when: item.id != 20

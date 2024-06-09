@@ -1,0 +1,12 @@
+- name: Configure network devices
+  hosts: core
+  gather_facts: true
+
+  tasks:
+    - name: Configure interface on Cisco IOS
+      cisco.ios.ios_config:
+        lines:
+          - interface FastEthernet 0/1
+          - description Configured by Ansible
+          - ip address 3.3.3.3 255.255.255.0
+      when: ansible_net_hostname == 'CORE'
