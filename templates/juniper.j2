@@ -1,7 +1,7 @@
 {% for ospf_instance in ospf %}
-router ospf {{ ospf_instance.process_id }}
-  router-id {{ ospf_instance.router_id }}
-  {% for network in ospf_instance.networks %}
-  network {{ network.network }} {{ network.wildmask }} area {{ network.area }}
-  {% endfor %}
+set protocols ospf area {{ ospf_instance.process_id }} interface ge-0/0/0.0
+set protocols ospf area {{ ospf_instance.process_id }} router-id {{ ospf_instance.router_id }}
+{% for network in ospf_instance.networks %}
+set protocols ospf area {{ ospf_instance.process_id }} network {{ network.network }} {{ network.wildmask }} area {{ network.area }}
+{% endfor %}
 {% endfor %}

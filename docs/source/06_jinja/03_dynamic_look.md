@@ -79,14 +79,69 @@ Amend the playbook to accommodate the new configuration:
   gather_facts: false
 
   tasks:
-    - name: Configure OSPF
+    - name: Generate OSPF Configuration
       template:
         src: "templates/{{ device_vendor }}.j2"
         dest: "/path/to/output/ospf_config_{{ inventory_hostname }}.conf"
 ```
 
-This playbook dynamically selects the appropriate Jinja2 template based on the `device_vendor` key defined in the `host_vars` files.
+#### Directory Structure
 
-### Conclusion
+Ensure your directory structure looks like this:
 
-By using different Jinja2 templates and referencing them dynamically in the Ansible playbook, you can efficiently manage multi-vendor network configurations. This approach ensures that each device gets the correct configuration, reducing errors and streamlining the network management process.
+```sh
+your_project/
+├── ansible.cfg
+├── host_vars
+│   ├── 172.16.10.11.yaml
+│   └── 172.16.10.14.yaml
+├── inventory.cfg
+├── templates
+│   ├── cisco.j2
+│   └── juniper.j2
+└── ospf_config.yaml
+```
+
+### Running the Playbook
+
+Execute the playbook with Ansible:
+
+```sh
+ansible-playbook -i inventory.cfg ospf_config.yaml
+```
+
+Sample output:
+
+```
+PLAY [Load Jinja2 Template] ************************************************************
+
+TASK [Generate OSPF Configuration] *****************************************************
+changed: [172.16.10.14]
+changed: [172.16.10.11]
+
+PLAY RECAP *****************************************************************************
+172.16.10.11               : ok=1    changed=1    unreachable=0    failed=0    skipped=0
+172.16.10.14               : ok=1    changed=1    unreachable=0    failed=0    skipped=0
+```
+
+### Resulting Configurations
+
+The configurations will be generated and saved on the control node, not pushed directly to the devices.
+
+**For Router `172.16.10.14` (Juniper):**
+
+```
+set protocols ospf area 88 interface ge-0/0/0.0
+set protocols ospf area 88 router-id 88.88.88.88
+set protocols ospf area 88 network 8.8.8.0 0.0.0.255 area 0
+```
+
+**For Router `172.16.10.11` (Cisco):**
+
+```
+router ospf 99
+  router-id 99.99.99.99
+  network 9.9.9.0 0.0.0.255 area 0
+```
+
+By using different Jinja2 templates and referencing them dynamically in the Ansible playbook, you can efficiently manage multi-vendor network configurations. This approach ensures that each device gets the correct configuration, reducing errors and streamlining the network management process. The generated configurations are saved on the control node, allowing you to review them before applying them to the devices.
