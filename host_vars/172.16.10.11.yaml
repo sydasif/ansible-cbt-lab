@@ -3,6 +3,9 @@ hostname: Core
 ntp: "2.2.2.2"
 
 ospf:
-  id: 100
-  network:
-    - 10.1.0.0 0.0.0.255 area 0
+  - process_id: 99
+    router_id: 99.99.99.99
+    networks:
+      - network: 9.9.9.0
+        wildmask: 0.0.0.255
+        area: 0
