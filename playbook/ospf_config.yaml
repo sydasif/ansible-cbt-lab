@@ -6,4 +6,4 @@
   tasks:
     - name: Configure OSPF
       cisco.ios.ios_config:
-        src: "ospf.j2"
+        src: "{{ device_vendor }}.j2"

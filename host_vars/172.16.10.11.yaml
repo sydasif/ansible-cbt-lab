@@ -9,3 +9,5 @@ ospf:
       - network: 9.9.9.0
         wildmask: 0.0.0.255
         area: 0
+
+device_vendor: "cisco"
