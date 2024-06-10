@@ -2,10 +2,6 @@
 
 With Jinja2, you can create templates that define the structure of your configuration files. By feeding these templates with data, you can quickly generate configurations that are consistent and tailored to the specific needs of each device.
 
-### CLI-Based Automation and APIs like NETCONF
-
-Jinja2 is useful not just for generating configurations for command-line interfaces (CLI), but also for creating XML configurations used in APIs like NETCONF. This flexibility makes it a powerful tool in both traditional and modern network automation workflows.
-
 For network engineers, knowing how to use Jinja2 is a valuable skill. It simplifies the process of creating and managing network configurations, saves time, and reduces the likelihood of errors. This efficiency is crucial in managing complex and large-scale networks.
 
 ### How It Works- Static and Variable Data
@@ -56,9 +52,9 @@ These YAML files contain the variable data for each router's OSPF configuration.
 
 To dynamically generate the OSPF configuration using the variables from the YAML files, you can create a Jinja2 template.
 
-Create a Jinja2 template file, for example, `ospf_config.j2`:
+Create a Jinja2 template file, for example, `ospf.j2`:
 
-```jinja2
+```py
 router ospf {{ ospf.id }}
 ```
 
@@ -120,6 +116,6 @@ PLAY RECAP *********************************************************************
 172.16.10.14               : ok=1    changed=1    unreachable=0    failed=0    skipped=0
 ```
 
-This will generate OSPF configuration files for each router in the specified destination path.
+This will generate OSPF configuration for each router as specified.
 
 By using a Jinja2 template and Ansible, you can easily generate dynamic OSPF configurations for different routers. This approach simplifies the management of network configurations, making it more efficient and less error-prone.
