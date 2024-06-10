@@ -1,14 +1,14 @@
 ## Formatting Data in Network Automation
 
-Ansible filters are very helpful for changing and formatting data in your network automation playbooks. These filters can make network configuration data easier to read and debug.
+Ansible filters are incredibly useful for transforming and formatting data within your network automation playbooks. These filters can be particularly beneficial for debugging and ensuring that network configuration data is presented in a human-readable manner.
 
 ### Rendering Data in JSON and YAML
 
-When dealing with complex network configurations, it's useful to convert them into easier-to-read formats. Ansible lets you convert variables into JSON and YAML.
+When working with complex network configuration data, it’s often helpful to convert it into a format that’s easier to read and understand. Ansible provides filters to convert variables into JSON and YAML formats.
 
 #### Converting to JSON
 
-To convert a variable with network configuration data from YAML to JSON format, use the `to_json` filter:
+To convert a variable containing network configuration data in YAML to JSON format, use the `to_json` filter:
 
 ```
 {{ network_config | to_json }}
@@ -16,17 +16,17 @@ To convert a variable with network configuration data from YAML to JSON format, 
 
 #### Converting to YAML
 
-To convert a variable with network configuration data from JSON to YAML format, use the `to_yaml` filter:
+To convert a variable containing network configuration data from JSON to YAML format, use the `to_yaml` filter:
 
 ```
 {{ network_config | to_yaml }}
 ```
 
-For more readable outputs, especially for debugging, Ansible provides filters to make JSON and YAML more human-readable.
+For more readable outputs, especially useful during debugging, Ansible provides filters to produce nicely formatted JSON and YAML.
 
 #### Nicely Formatted JSON
 
-To create a more readable JSON output, use the `to_nice_json` filter:
+To produce a more human-readable JSON output for network data, use the `to_nice_json` filter:
 
 ```
 {{ network_config | to_nice_json }}
@@ -34,7 +34,7 @@ To create a more readable JSON output, use the `to_nice_json` filter:
 
 #### Nicely Formatted YAML
 
-To create a more readable YAML output, use the `to_nice_yaml` filter:
+To produce a more human-readable YAML output for network data, use the `to_nice_yaml` filter:
 
 ```
 {{ network_config | to_nice_yaml }}
@@ -84,6 +84,10 @@ To get the largest number from a list:
         msg: "{{ my_list | max }}"
 ```
 
+### Set Theory Filters
+
+These functions return unique sets from lists, which can be useful for comparing network configurations.
+
 #### Finding the Symmetric Difference
 
 To find items that are in either list1 or list2 but not in both:
@@ -110,5 +114,4 @@ To find items that are in either list1 or list2 but not in both:
       ansible.builtin.debug:
         msg: "{{ list1 | symmetric_difference(list2) }}"
 ```
-
 By using these simple filters, you can easily format and analyze your network configuration data, making your network automation tasks much easier.
