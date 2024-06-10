@@ -1,8 +1,6 @@
 ---
-hostname: Core
-ntp: "2.2.2.2"
 
 ospf:
-  id: 100
+  id: 99
   network:
     - 10.1.0.0 0.0.0.255 area 0

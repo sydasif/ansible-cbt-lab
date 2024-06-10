@@ -40,4 +40,5 @@ This quick start guide for Ansible is designed to help you get up and running wi
 03_loop/index
 04_conditional/index
 05_filter/index
+06_jinja/index
 ```
