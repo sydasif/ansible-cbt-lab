@@ -1,10 +1,9 @@
 ---
 ospf:
-  - process_id: 88
-    router_id: 88.88.88.88
-    networks:
-      - network: 8.8.8.0
-        wildmask: 0.0.0.255
-        area: 0
-
-device_vendor: "juniper"
+  process_id: 88
+  router_id: 88.88.88.88
+  networks:
+    - network: 8.8.8.0
+      mask: 0.0.0.255
+    - network: 9.9.9.0
+      mask: 0.0.0.255
