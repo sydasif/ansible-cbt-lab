@@ -1,4 +1,4 @@
-# Jinja Templates
+# Jinja2 Templates and Ansible
 
 Jinja2 is a popular templated engine for Python. It allows you to create dynamic templates that can be rendered with specific data. This means you can generate HTML, XML, or other markup formats with variable data inserted into predefined templates.
 

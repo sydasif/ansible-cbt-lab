@@ -1,4 +1,4 @@
-## Generating Configuration
+## Generating Configuration with Jinja2
 
 With Jinja2, you can create templates that define the structure of your configuration files. By feeding these templates with data, you can quickly generate configurations that are consistent and tailored to the specific needs of each device.
 
