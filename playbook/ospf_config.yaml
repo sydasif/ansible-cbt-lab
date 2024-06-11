@@ -8,3 +8,4 @@
       ansible.builtin.template:
         src: "~/ansible-cbt-lab/templates/{{ device_vendor }}.j2"
         dest: "./ospf_config_{{ inventory_hostname }}.conf"
+        mode: '0644'
