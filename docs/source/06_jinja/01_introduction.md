@@ -35,7 +35,7 @@ We'll work with two routers with IP addresses `172.16.10.14` and `172.16.10.11`.
 ```yaml
 # host_vars/172.16.10.14.yml
 ospf:
-  id: 100
+  iprocess_id: 10
 ```
 
 **For Router `172.16.10.11`:**
@@ -43,7 +43,7 @@ ospf:
 ```yaml
 # host_vars/172.16.10.11.yml
 ospf:
-  id: 99
+  process_id: 10
 ```
 
 These YAML files contain the variable data for each router's OSPF configuration. The Jinja2 template can then use these variables to generate the correct configuration for each router dynamically.
@@ -55,7 +55,7 @@ To dynamically generate the OSPF configuration using the variables from the YAML
 Create a Jinja2 template file, for example, `ospf.j2`:
 
 ```py
-router ospf {{ ospf.id }}
+router ospf {{ ospf.process_id }}
 ```
 
 This template uses the `ospf` dictionary to access the `id` variables from the YAML files. When rendered, it will produce the appropriate OSPF configuration for each router based on their respective variables.
