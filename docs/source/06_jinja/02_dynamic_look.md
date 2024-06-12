@@ -11,8 +11,8 @@ In the previous lab, we had two Cisco routers with IP addresses `172.16.10.11` a
 ```yaml
 # host_vars/172.16.10.14.yaml
 ospf:
-  process_id: 88
-  router_id: 88.88.88.88
+  process_id: 10
+  router_id: 1.1.1.1
 
 device_vendor: "juniper"
 ```
@@ -24,8 +24,8 @@ Here, we define the key `device_vendor: "juniper"` for the Juniper device.
 ```yaml
 # host_vars/172.16.10.11.yaml
 ospf:
-  process_id: 99
-  router_id: 99.99.99.99
+  process_id: 10
+  router_id: 2.2.2.2
 
 device_vendor: "cisco"
 ```
@@ -113,15 +113,15 @@ The configurations will be generated and saved on the control node, not pushed d
 **For Router `172.16.10.14` (Juniper):**
 
 ```
-set protocols ospf area 88 interface ge-0/0/0.0
-set protocols ospf area 88 router-id 88.88.88.88
+set protocols ospf area 10 interface ge-0/0/0.0
+set protocols ospf area 10 router-id 1.1.1.1
 ```
 
 **For Router `172.16.10.11` (Cisco):**
 
 ```
-router ospf 99
-  router-id 99.99.99.99
+router ospf 10
+  router-id 2.2.2.2
 ```
 
 By using different Jinja2 templates and referencing them dynamically in the Ansible playbook, you can efficiently manage multi-vendor network configurations. This approach ensures that each device gets the correct configuration, reducing errors and streamlining the network management process.
