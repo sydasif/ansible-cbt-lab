@@ -29,12 +29,12 @@ Create a YAML file named `172.16.10.14.yaml` in the `host_vars` directory:
 ```yaml
 # host_vars/172.16.10.14.yaml
 ospf:
-  process_id: 88
-  router_id: 88.88.88.88
+  process_id: 10
+  router_id: 1.1.1.1
   networks:
-    - network: 8.8.8.0
-      mask: 0.0.0.255
-    - network: 9.9.9.0
+    - network: 9.9.9.8
+      mask: 0.0.0.3
+    - network: 192.168.71.0
       mask: 0.0.0.255
 ```
 
@@ -45,12 +45,12 @@ Similarly, create a YAML file named `172.16.10.11.yaml`:
 ```yaml
 # host_vars/172.16.10.11.yaml
 ospf:
-  process_id: 99
-  router_id: 99.99.99.99
+  process_id: 10
+  router_id: 2.2.2.2
   networks:
-    - network: 9.9.9.0
-      mask: 0.0.0.255
-    - network: 19.19.19.0
+    - network: 9.9.9.8
+      mask: 0.0.0.3
+    - network: 172.16.10.0
       mask: 0.0.0.255
 ```
 
