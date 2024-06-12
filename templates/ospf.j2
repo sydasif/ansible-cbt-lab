@@ -2,4 +2,7 @@ router ospf {{ ospf.process_id }}
   router-id {{ ospf.router_id }}
   {% for network in ospf.networks %}
   network {{ network.network }} {{ network.mask }} area 0
+  {% if ospf.router_id == '1.1.1.1' %}
+  default-information originate
+  {% endif %}
   {% endfor %}
