@@ -6,7 +6,7 @@ For network engineers, knowing how to use Jinja2 is a valuable skill. It simplif
 
 ### How It Works- Static and Variable Data
 
-As a network engineer, you might type a command like `router ospf 1`. In this command, `router ospf` is static, but the value `1` is variable and might be different for the next configuration, such as `99`. Jinja2 helps in separating this static data from the variable data, allowing you to create dynamic and reusable templates.
+As a network engineer, you might type a command like `router ospf 1`. In this command, `router ospf` is static, but the value `1` is variable and might be different for the next configuration, such as `2`. Jinja2 helps in separating this static data from the variable data, allowing you to create dynamic and reusable templates.
 
 With Jinja2, you can define templates that include both static parts and placeholders for variable data. When you provide the specific variables, Jinja2 renders the final configuration by filling in these placeholders.
 
@@ -35,7 +35,7 @@ We'll work with two routers with IP addresses `172.16.10.14` and `172.16.10.11`.
 ```yaml
 # host_vars/172.16.10.14.yml
 ospf:
-  iprocess_id: 10
+  process_id: 10
 ```
 
 **For Router `172.16.10.11`:**
@@ -43,7 +43,7 @@ ospf:
 ```yaml
 # host_vars/172.16.10.11.yml
 ospf:
-  process_id: 10
+  process_id: 11
 ```
 
 These YAML files contain the variable data for each router's OSPF configuration. The Jinja2 template can then use these variables to generate the correct configuration for each router dynamically.
