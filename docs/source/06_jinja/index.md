@@ -10,4 +10,5 @@ In network automation, Jinja2 helps automate the generation of configuration fil
 01_introduction
 02_dynamic_look
 03_loop
+04_conditional
 ```
