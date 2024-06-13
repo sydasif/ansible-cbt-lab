@@ -131,6 +131,4 @@ PLAY RECAP *********************************************************************
 172.16.10.14               : ok=1    changed=1    unreachable=0    failed=0    skipped=0
 ```
 
-## Conclusion
-
 By using Jinja2 templates with loops, you can create dynamic and reusable configurations for different network devices. This approach not only simplifies the management of network configurations but also ensures consistency across different devices. With the provided example, you can easily adapt and extend the templates and variable files to suit various network requirements.
