@@ -4,7 +4,8 @@ Before setting up your virtual network lab with GNS3 on a Windows PC, ensure you
 
 1. **Windows PC Requirements**: Confirm your PC meets the necessary RAM, CPU, and disk space requirements for GNS3 and VMware. [Details here](https://docs.gns3.com/docs/getting-started/installation/windows/#minimum-requirements).
 2. **GNS3 and GNS3 VM**: Install GNS3 and its VM in VMware. Download from the [GNS3 website](https://www.gns3.com/) and follow the [installation instructions](https://docs.gns3.com/docs/getting-started/installation/windows/#introduction). Helpful videos: [Video 1](https://www.youtube.com/watch?v=x9pGYyEqLYs), [Video 2](https://www.youtube.com/watch?v=lFEDmM_lsxI).
-3. **Ubuntu 22 Server**: Install Ubuntu 22 Server in VMware, ensuring it has sufficient resources for optimal performance. Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
+3. **Ubuntu 22 Server**: Install Ubuntu 22 Server in VMware, ensuring it has sufficient resources for optimal performance.
+4. Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
 
 With these components in place, you're ready to proceed to setup the Network lab:
 
@@ -217,8 +218,4 @@ As you continue your network exploration, consider the following next steps:
 - **Experiment with Python:** Explore advanced Python scripts to handle various networking tasks.
 - **Document Your Lab:** Maintain comprehensive documentation of your lab setup, including configurations and scripts, for future reference.
 
-## Conclusion
-
 In conclusion, you've successfully created a virtual network lab that serves as an invaluable resource for testing Python code on networking devices. This hands-on environment, comprising GNS3, Ubuntu Server, and VSCode, empowers you to refine your networking and coding skills in a dynamic and controlled setting.
-
-[Cisco IOS Lab Images](https://drive.google.com/drive/folders/1m85cy4y8At0yrKL-6_2bNDwtf-u5bTDU?usp=sharing)
