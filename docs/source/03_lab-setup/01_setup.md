@@ -194,16 +194,7 @@ SSH Ext
 #### Configure SSH Connection
 
 In the bottom-left corner of the VSCode window, click on the blue square icon (Remote Explorer).
-Click on the "Connect to Host" to add a new SSH target.
-Enter the SSH connection details for your Ubuntu Server (username, IP address).
-
-```{figure} ../images/re-con.PNG
----
-width: 100%
-name: idle
----
-Connection
-```
+Click on the "Connect to Host" to add a new SSH target. Enter the SSH connection details for your Ubuntu Server (username, IP address).
 
 With VSCode and the SSH extension installed, you now have a powerful coding environment directly linked to your Ubuntu Server. This integration streamlines the process of writing and testing Python scripts for your network lab.
 
