@@ -1,8 +1,4 @@
-## Installing and Using Ansible
-
-In this section, we will guide you through the installation of Ansible and show you how to use it for network automation. Ansible simplifies network management, making it more efficient and less prone to errors.
-
-### Installing Ansible
+## Installing Ansible
 
 Ansible can be installed on most Unix systems, with the only requirement being Python 2.7 or Python 3.5. Unfortunately, Windows is not officially supported as a control machine. For detailed installation instructions, refer to the Ansible documentation [**website**](https://docs.ansible.com/ansible/2.9/installation_guide/index.html). Below, we outline the steps to install Ansible on an Ubuntu machine:
 

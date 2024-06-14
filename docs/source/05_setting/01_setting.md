@@ -1,8 +1,4 @@
-## Ansible Configuration and Setting
-
-Ansible offers several ways to configure its behavior, making it flexible and customizable to fit different needs. You can use configuration files, environment variables, command-line options, playbook keywords, and variables.
-
-### The Configuration File
+## The Configuration File
 
 Ansible uses a configuration file named `ansible.cfg` to change its behavior. Ansible looks for this file in the following order:
 

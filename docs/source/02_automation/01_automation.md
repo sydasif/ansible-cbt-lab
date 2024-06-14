@@ -1,8 +1,21 @@
-## Ansible for Network Automation
+## Getting Started with Network Automation
 
-In modern IT environments, automating network management is crucial. This section introduces Ansible for network automation, focusing on its practical benefits and ease of use, especially for those without extensive programming skills.
+Ansible supports a wide range of vendors, device types, and actions, enabling comprehensive network management with a single tool. This versatility makes Ansible a powerful solution for automating routine tasks and ensuring consistency across network infrastructures. Communication between the control node and managed nodes is handled through multiple protocols:
 
-### Expanding Ansible’s Capabilities
+- **network_cli by SSH:** A widely-used, secure protocol for managing network devices.
+- **netconf by SSH:** Designed specifically for network management, offering enhanced configuration and monitoring capabilities.
+- **httpapi by HTTP/HTTPS:** A flexible protocol for interacting with network devices that support RESTful APIs.
+
+Supported network platforms include:
+
+- **Arista: eos:** Automation for Arista's Extensible Operating System.
+- **Cisco: ios, iosxr, nxos:** Management of Cisco’s various network operating systems.
+- **Juniper: junos:** Automation for Juniper's Junos OS.
+- **VyOS: vyos:** Support for VyOS, an open-source network operating system.
+
+Ansible’s extensive support for different network platforms and protocols helps streamline network automation processes and enhances operational efficiency.
+
+## Expanding Ansible’s Capabilities
 
 Originally designed for server management, Ansible now supports network devices too. The core concepts, like modules and playbooks, are similar for both servers and networks, though some differences exist to accommodate network-specific tasks. This unified approach helps streamline IT operations and boosts efficiency.
 
@@ -31,23 +44,6 @@ Ansible is an excellent choice for network engineers looking to automate tasks w
 ### Built-In Concurrency
 
 One of Ansible's significant advantages over traditional Python scripting is its built-in concurrency. Ansible allows tasks to be executed in parallel across multiple nodes, speeding up deployment times and ensuring consistent configurations.
-
-## Getting Started with Network Automation
-
-Ansible supports a wide range of vendors, device types, and actions, enabling comprehensive network management with a single tool. This versatility makes Ansible a powerful solution for automating routine tasks and ensuring consistency across network infrastructures. Communication between the control node and managed nodes is handled through multiple protocols:
-
-- **network_cli by SSH:** A widely-used, secure protocol for managing network devices.
-- **netconf by SSH:** Designed specifically for network management, offering enhanced configuration and monitoring capabilities.
-- **httpapi by HTTP/HTTPS:** A flexible protocol for interacting with network devices that support RESTful APIs.
-
-Supported network platforms include:
-
-- **Arista: eos:** Automation for Arista's Extensible Operating System.
-- **Cisco: ios, iosxr, nxos:** Management of Cisco’s various network operating systems.
-- **Juniper: junos:** Automation for Juniper's Junos OS.
-- **VyOS: vyos:** Support for VyOS, an open-source network operating system.
-
-Ansible’s extensive support for different network platforms and protocols helps streamline network automation processes and enhances operational efficiency.
 
 ### Network Modules
 

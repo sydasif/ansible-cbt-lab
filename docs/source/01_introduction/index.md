@@ -8,9 +8,4 @@ In the past, network engineers used command-line interfaces (CLI) to configure n
 :maxdepth: 1
 
 01_introduction
-02_automation
-03_installation
-04_setting
-05_inventory
-06_testing
 ```
