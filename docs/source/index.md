@@ -36,10 +36,14 @@ This quick start guide for Ansible is designed to help you get up and running wi
 :maxdepth: 2
 
 01_introduction/index
-02_variables/index
-03_loop/index
-04_conditional/index
-05_filter/index
-06_jinja/index
-07_debug/index
+02_automation/index
+03_installation/index
+04_lab/index
+05_setting/index
+06_variables/index
+07_loop/index
+08_conditional/index
+09_filter/index
+10_jinja/index
+11_debug/index
 ```
