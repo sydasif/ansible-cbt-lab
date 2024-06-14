@@ -47,6 +47,10 @@ One of Ansible's significant advantages over traditional Python scripting is its
 
 ### Network Modules
 
-Unlike most Ansible modules, network modules do not run on the managed nodes because most network devices cannot run Python. Instead, these modules execute on the Ansible control node. This method ensures effective network device management. Additionally, network modules use the control node to store backup files, usually in the backup directory under the playbook root directory. This approach allows Ansible to provide consistent network management and backup capabilities without requiring Python on the network devices.
+Unlike most Ansible modules, network modules do not run on the managed nodes because most network devices cannot run Python. Instead, these modules execute on the Ansible control node. This method ensures effective network device management. Additionally, network modules use the control node to store backup files, usually in the backup directory under the playbook root directory.
 
-With Ansible, network engineers can streamline their workflows, reduce manual interventions, and achieve greater consistency and reliability in their network operations. This introduction sets the stage for exploring Ansible's capabilities and understanding how it can transform network management practices.
+This approach allows Ansible to provide consistent network management and backup capabilities without requiring Python on the network devices.
+
+With Ansible, network engineers can streamline their workflows, reduce manual interventions, and achieve greater consistency and reliability in their network operations.
+
+This introduction sets the stage for exploring Ansible's capabilities and understanding how it can transform network management practices.

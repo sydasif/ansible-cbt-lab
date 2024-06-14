@@ -3,15 +3,16 @@
 Before setting up your virtual network lab with GNS3 on a Windows PC, ensure you have the following prerequisites:
 
 1. **Windows PC Requirements**: Confirm your PC meets the necessary RAM, CPU, and disk space requirements for GNS3 and VMware. [Details here](https://docs.gns3.com/docs/getting-started/installation/windows/#minimum-requirements).
-2. **GNS3 and GNS3 VM**: Install GNS3 and its VM in VMware. Download from the [GNS3 website](https://www.gns3.com/) and follow the [installation instructions](https://docs.gns3.com/docs/getting-started/installation/windows/#introduction). Helpful videos: [Video 1](https://www.youtube.com/watch?v=x9pGYyEqLYs), [Video 2](https://www.youtube.com/watch?v=lFEDmM_lsxI).
+2. **GNS3 and GNS3 VM**: Install GNS3 and its VM in VMware. Download from the [GNS3 website](https://www.gns3.com/) and follow the [installation instructions](https://docs.gns3.com/docs/getting-started/installation/windows/#introduction).
+  - Helpful videos: [Video 1](https://www.youtube.com/watch?v=x9pGYyEqLYs), [Video 2](https://www.youtube.com/watch?v=lFEDmM_lsxI).
 3. **Ubuntu 22 Server**: Install Ubuntu 22 Server in VMware, ensuring it has sufficient resources for optimal performance.
-4. Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
+  - Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
 
 With these components in place, you're ready to proceed to setup the Network lab:
 
 ```{figure} ../images/automation-lab.png
 ---
-width: 100%
+width: 75%
 name: idle
 ---
 Lab Topology
@@ -27,7 +28,7 @@ Ensure that VMware is on, locate the GNS3 VM and check GNS3 VM to establish the 
 
 ```{figure} ../images/gns3-vm.PNG
 ---
-width: 100%
+width: 50%
 name: idle
 ---
 GNS3 VM
