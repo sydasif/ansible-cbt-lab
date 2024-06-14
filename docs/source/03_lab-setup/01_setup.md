@@ -8,16 +8,6 @@ Before setting up your virtual network lab with GNS3 on a Windows PC, ensure you
 3. **Ubuntu 22 Server**: Install Ubuntu 22 Server in VMware, ensuring it has sufficient resources for optimal performance.
   - Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
 
-With these components in place, you're ready to proceed to setup the Network lab:
-
-```{figure} ../images/automation-lab.png
----
-width: 75%
-name: idle
----
-Lab Topology
-```
-
 ### Starting the Lab Environment
 
 With the prerequisites in place, it's time to kick off the virtual network lab environment. This section outlines the steps to start GNS3, launch the GNS3 VM in VMware, and initiate the Ubuntu 22 Server.
@@ -49,7 +39,7 @@ In this section, we'll configure the Ubuntu Server within your virtual lab envir
 
 ```{figure} ../images/network-adopter.PNG
 ---
-width: 100%
+width: 25%
 name: idle
 ---
 Network Adopter
@@ -152,7 +142,7 @@ In this section, we'll expand your virtual network lab in GNS3 by adding a cloud
 
 ```{figure} ../images/vmnet.PNG
 ---
-width: 100%
+width: 25%
 name: idle
 ---
 VMNet
@@ -186,7 +176,7 @@ Once VSCode is installed, open the application on your Windows PC.
 
 ```{figure} ../images/ssh-ext.PNG
 ---
-width: 100%
+width: 50%
 name: idle
 ---
 SSH Ext
@@ -226,24 +216,6 @@ In this section, we'll establish a direct connection between Visual Studio Code 
 
 With this connection established, you can seamlessly develop, debug, and test Python scripts directly on your Ubuntu Server from within the VSCode environment. This integration empowers you to leverage the full potential of your virtual network lab for scripting and automation tasks.
 
-## Finalizing the Lab Setup
-
-Congratulations on successfully setting up your virtual network lab with GNS3, Ubuntu Server, and Visual Studio Code (VSCode). In this section, we'll recap the key components of your lab setup and highlight the benefits of the interconnected environment you've created.
-
-### Benefits of the Lab Setup
-
-By creating this integrated virtual network lab, you've gained several advantages:
-
-- **Hands-on Learning:** Actively engage with networking concepts through practical exercises and experiments.
-- **Scripting and Automation:** Leverage Python scripts to automate network configurations and tasks.
-- **Real-world Simulation:** Mimic real-world network scenarios and challenges within the GNS3 environment.
-
-### Next Steps
-
-As you continue your network exploration, consider the following next steps:
-
-- **Expand Your Topology:** Add more devices to your GNS3 topology to simulate complex network architectures.
-- **Experiment with Python:** Explore advanced Python scripts to handle various networking tasks.
-- **Document Your Lab:** Maintain comprehensive documentation of your lab setup, including configurations and scripts, for future reference.
+Congratulations on successfully setting up your virtual network lab with GNS3, Ubuntu Server, and Visual Studio Code (VSCode).
 
 In conclusion, you've successfully created a virtual network lab that serves as an invaluable resource for testing Python code on networking devices. This hands-on environment, comprising GNS3, Ubuntu Server, and VSCode, empowers you to refine your networking and coding skills in a dynamic and controlled setting.
