@@ -9,7 +9,13 @@ Before setting up your virtual network lab with GNS3 on a Windows PC, ensure you
 
 With these components in place, you're ready to proceed to setup the Network lab:
 
-![network-lab](/images/automation-lab.png)
+```{figure} ../images/automation-lab.png
+---
+width: 100%
+name: idle
+---
+Lab Topology
+```
 
 ### Starting the Lab Environment
 
@@ -19,7 +25,13 @@ Open GNS3 on your Windows PC. Navigate through any initial setup wizards or conf
 
 Ensure that VMware is on, locate the GNS3 VM and check GNS3 VM to establish the connection between GNS3 GUI and the virtual machine.
 
-![fig-1](/images/gns3-vm.PNG)
+```{figure} ../images/gns3-vm.PNG
+---
+width: 100%
+name: idle
+---
+GNS3 VM
+```
 
 ### Configuring Ubuntu Server
 
@@ -34,7 +46,13 @@ In this section, we'll configure the Ubuntu Server within your virtual lab envir
 5. Change the network connection mode to `Vmnet2`.
 6. Click OK to save the changes.
 
-![fig-2](/images/network-adopter.PNG)
+```{figure} ../images/network-adopter.PNG
+---
+width: 100%
+name: idle
+---
+Network Adopter
+```
 
 #### Start Ubuntu Server
 
@@ -131,7 +149,13 @@ In this section, we'll expand your virtual network lab in GNS3 by adding a cloud
 2. In the "Node Configurations" window, select the `Ethernet Interfaces` tab.
 3. Choose the network adapter that corresponds to your Ubuntu server network.
 
-![fig-3](/images/vmnet.PNG)
+```{figure} ../images/vmnet.PNG
+---
+width: 100%
+name: idle
+---
+VMNet
+```
 
 #### Apply Changes
 
@@ -159,7 +183,13 @@ Once VSCode is installed, open the application on your Windows PC.
 2. Search for "Remote - SSH" in the Extensions view search box.
 3. Click "Install" next to the "Remote - SSH" extension.
 
-![fig-4](/images/ssh-ext.PNG)
+```{figure} ../images/ssh-ext.PNG
+---
+width: 100%
+name: idle
+---
+SSH Ext
+```
 
 #### Configure SSH Connection
 
@@ -167,7 +197,13 @@ In the bottom-left corner of the VSCode window, click on the blue square icon (R
 Click on the "Connect to Host" to add a new SSH target.
 Enter the SSH connection details for your Ubuntu Server (username, IP address).
 
-![fig-5](/images/re-con.png)
+```{figure} ../images/re-con.PNG
+---
+width: 100%
+name: idle
+---
+Connection
+```
 
 With VSCode and the SSH extension installed, you now have a powerful coding environment directly linked to your Ubuntu Server. This integration streamlines the process of writing and testing Python scripts for your network lab.
 
