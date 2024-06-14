@@ -22,11 +22,11 @@ Consistency in network configurations is vital to prevent discrepancies and pote
 
 In the event of errors or failures, automation enables quicker recovery and troubleshooting. Automated scripts can identify and rectify issues promptly, minimizing downtime and ensuring that the network remains operational.
 
-## Use of Python and Go for Automation
+### Use of Python and Go for Automation
 
 In this section, we’ll delve into how Python and Go are used for network automation. Both programming languages offer unique benefits that make them suitable for different automation tasks.
 
-### Python for Network Automation
+#### Python for Network Automation
 
 Python is a popular choice for network automation due to its simplicity and extensive library support. Network engineers use Python to write scripts that can automate various tasks, such as:
 
@@ -36,7 +36,7 @@ Python is a popular choice for network automation due to its simplicity and exte
 
 Python's readability and ease of use make it an accessible language for engineers, even those who are new to programming.
 
-### Go for Network Automation
+#### Go for Network Automation
 
 Go, another programming language, is known for its performance and efficiency. It is increasingly used in network automation for developing high-performance tools and applications. Go is particularly beneficial for tasks that require speed and efficiency, making it a valuable addition to the network automation toolkit.
 

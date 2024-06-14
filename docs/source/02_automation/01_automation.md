@@ -15,7 +15,7 @@ Supported network platforms include:
 
 Ansible’s extensive support for different network platforms and protocols helps streamline network automation processes and enhances operational efficiency.
 
-## Expanding Ansible’s Capabilities
+### Expanding Ansible’s Capabilities
 
 Originally designed for server management, Ansible now supports network devices too. The core concepts, like modules and playbooks, are similar for both servers and networks, though some differences exist to accommodate network-specific tasks. This unified approach helps streamline IT operations and boosts efficiency.
 

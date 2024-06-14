@@ -11,7 +11,7 @@ With these components in place, you're ready to proceed to setup the Network lab
 
 ![network-lab](/images/automation-lab.png)
 
-## Starting the Lab Environment
+### Starting the Lab Environment
 
 With the prerequisites in place, it's time to kick off the virtual network lab environment. This section outlines the steps to start GNS3, launch the GNS3 VM in VMware, and initiate the Ubuntu 22 Server.
 
