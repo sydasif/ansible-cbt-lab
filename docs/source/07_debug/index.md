@@ -7,4 +7,5 @@ When we push a configuration to a device, Ansible provides a summary indicating 
 :maxdepth: 1
 
 01_register
+02_handler
 ```
