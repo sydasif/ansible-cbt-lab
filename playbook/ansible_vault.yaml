@@ -1,0 +1,9 @@
+---
+- name: Playbook - Ansible Vault
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: Print Credential
+      ansible.builtin.debug:
+        msg: "The username: {{ ansible_user }}, and password: {{ ansible_password }}"
