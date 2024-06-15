@@ -11,7 +11,15 @@ Before starting, make sure you have:
 ### Starting the Lab Environment
 
 1. Open GNS3 on your Windows PC and complete any setup wizards.
-2. Ensure VMware is running, locate the GNS3 VM, and establish the connection between GNS3 GUI and the virtual machine.
+2. Ensure VMware is running, locate the GNS3 VM, verify the connection between GNS3 GUI and the virtual machine.
+
+```{figure} ../images/gns3-vm.png
+---
+width: 50%
+name: idle
+---
+GNS3 VM
+```
 
 ### Configuring Ubuntu Server
 
@@ -25,6 +33,14 @@ Follow these steps to set up a second network adapter for Ubuntu Server in VMwar
 4. Navigate to the "Network Adapter" tab and add a second adapter.
 5. Change the network connection mode to `Vmnet2`.
 6. Click OK to save the changes.
+
+```{figure} ../images/network-adopter.png
+---
+width: 50%
+name: idle
+---
+Network Adopter
+```
 
 #### Start Ubuntu Server
 
@@ -74,6 +90,55 @@ ip addr show
 
 Make sure the network interfaces have IP addresses and are in the "UP" state.
 
+### Adding Cloud Node to GNS3
+
+1. Open GNS3 and go to your workspace.
+2. Drag the Cloud node into the workspace.
+3. Connect the cloud node to your devices.
+4. Right-click the cloud node and select "Configure."
+5. Choose the network adapter that corresponds to your Ubuntu server network.
+6. Click "OK" and save the project.
+
+```{figure} ../images/vmnet.png
+---
+width: 50%
+name: idle
+---
+Cloud Node Setting
+```
+
+### Installing VSCode and SSH Extension
+
+1. Download and install VSCode from VSCode Downloads.
+2. Open VSCode.
+3. Go to Extensions (Ctrl+Shift+X) and search for "Remote - SSH."
+4. Install the "Remote - SSH" extension.
+
+```{figure} ../images/ssh-ext.png
+---
+width: 75%
+name: idle
+---
+SSH Extension
+```
+
+### Configure SSH Connection
+
+1. Click on the blue square icon (Remote Explorer) in the bottom-left corner of VSCode.
+2. Click "Connect to Host" and add your SSH details (username, IP address).
+
+### Connecting VSCode to Ubuntu Server
+
+1. Click on the SSH target representing your Ubuntu Server.
+2. Enter the password when prompted.
+3. Verify the connection by running basic commands in the VSCode terminal.
+
+#### Create and Test Python Scripts
+
+1. Create a new Python file in VSCode.
+2. Write a simple script (e.g., print("Hello, GNS3!")).
+3. Run the script using the VSCode terminal.
+
 ## Setting Up Network Devices in GNS3
 
 In this section, we'll add network devices to our workspace and configure them according to the provided lab topology.
@@ -119,8 +184,9 @@ Set up usernames and passwords on all network devices. Use consistent credential
 
 To manage the network devices remotely, we'll set up SSH on each router and switch. Follow these steps:
 
-1. **Generate RSA Keys**:
+1. **Configure Domain and Generate RSA Keys**:
    ```bash
+   ip domain-name lab.com
    crypto key generate rsa
    ```
 
