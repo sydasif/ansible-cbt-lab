@@ -4,7 +4,7 @@ Ansible uses an inventory to manage hosts in your infrastructure. The inventory 
 
 ### Formats for Inventory Files
 
-You can create inventory files in different formats, with `INI` and `YAML` being the most common. Here are examples based on a [lab setup](/docs/source/04_lab-setup/index.md):
+You can create inventory files in different formats, with `INI` and `YAML` being the most common. Here are examples based on a lab setup:
 
 #### INI Format
 
