@@ -27,8 +27,8 @@ Learn Ansible Network Automation with GNS3 and Cisco devices.
   - Ansible for Network Automation
   - Python for Network Automation
 
-```{warning}
-This quick start guide for Ansible is designed to help you get up and running with network automation... It covers essential techniques, making your network automation tasks more efficient. Please refer to the official Ansible documentation for the latest updates and features. The examples provided have been tested in a lab environment, so use with caution when applying them in production settings. The author is not responsible for any issues or damages arising from the use of this guide.
+```{note}
+This quick start guide for Ansible is designed to help you get up and running with network automation. It covers essential techniques, making your network automation tasks more efficient. Please refer to the official Ansible documentation for the latest updates and features. The examples provided have been tested in a lab environment, so use with caution when applying them in production settings. The author is not responsible for any issues or damages arising from the use of this guide.
 ```
 
 ```{toctree}
