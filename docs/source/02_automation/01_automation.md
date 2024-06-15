@@ -15,9 +15,9 @@ Supported network platforms include:
 
 Ansible’s extensive support for different network platforms and protocols helps streamline network automation processes and enhances operational efficiency.
 
-```{seealso}
-`Ansible for Network Automation <https://docs.ansible.com/ansible/latest/network/index.html>`_
-```
+.. admonition:: See also
+   :class: tip
+   [Ansible for Network Automation](https://docs.ansible.com/ansible/latest/network/index.html)
 
 
 ### Expanding Ansible’s Capabilities
