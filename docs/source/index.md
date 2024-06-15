@@ -37,8 +37,8 @@ This quick start guide for Ansible is designed to help you get up and running wi
 
 01_introduction/index
 02_automation/index
-03_lab-setup/index
-04_installation/index
+03_installation/index
+04_lab-setup/index
 05_setting/index
 06_variables/index
 07_loop/index
