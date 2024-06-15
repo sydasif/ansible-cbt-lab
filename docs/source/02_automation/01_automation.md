@@ -57,5 +57,3 @@ Unlike most Ansible modules, network modules do not run on the managed nodes bec
 This approach allows Ansible to provide consistent network management and backup capabilities without requiring Python on the network devices.
 
 With Ansible, network engineers can streamline their workflows, reduce manual interventions, and achieve greater consistency and reliability in their network operations.
-
-This introduction sets the stage for exploring Ansible's capabilities and understanding how it can transform network management practices.

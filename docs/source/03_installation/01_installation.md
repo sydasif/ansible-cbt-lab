@@ -1,6 +1,8 @@
 ## Installing Ansible
 
-Ansible can be installed on most Unix systems, with the only requirement being Python 2.7 or Python 3.5. Unfortunately, Windows is not officially supported as a control machine. For detailed installation instructions, refer to the Ansible documentation [**website**](https://docs.ansible.com/ansible/2.9/installation_guide/index.html). Below, we outline the steps to install Ansible on an Ubuntu machine:
+Ansible can be installed on most Unix systems, with the only requirement being Python 2.7 or Python 3.5. Unfortunately, Windows is not officially supported as a control machine. For detailed installation instructions, refer to the Ansible documentation [**website**](https://docs.ansible.com/ansible/2.9/installation_guide/index.html).
+
+Below, we outline the steps to install Ansible on an Ubuntu machine:
 
 ### Installation Steps
 
@@ -95,4 +97,6 @@ localhost | SUCCESS => {
 }
 ```
 
-You have successfully installed Ansible on your system. With Ansible up and running, you now have a powerful tool at your disposal for automating IT infrastructure management tasks. This setup will enable you to streamline configurations, deploy applications, and manage complex IT environments with ease. As you delve deeper into Ansible, you will discover its extensive capabilities and the efficiency it brings to your workflow. Happy automating!
+You have successfully installed Ansible on your system. With Ansible up and running, you now have a powerful tool at your disposal for automating IT infrastructure management tasks.
+
+This setup will enable you to streamline configurations, deploy applications, and manage complex IT environments with ease. As you dive deeper into Ansible, you will discover its extensive capabilities and the efficiency it brings to your workflow.

@@ -2,11 +2,13 @@
 
 Before starting, make sure you have:
 
-1. **Windows PC Requirements**: Ensure your PC has enough RAM, CPU, and disk space. [Details here](https://docs.gns3.com/docs/getting-started/installation/windows/#minimum-requirements).
-2. **GNS3 and GNS3 VM**: Download and install GNS3 and its VM from the [GNS3 website](https://www.gns3.com/). Follow the [installation instructions](https://docs.gns3.com/docs/getting-started/installation/windows/#introduction).
-   - Helpful videos: [Video 1](https://www.youtube.com/watch?v=x9pGYyEqLYs), [Video 2](https://www.youtube.com/watch?v=lFEDmM_lsxI).
+1. **Windows PC Requirements**: Ensure your PC has enough RAM, CPU, and disk space.
+   * [Details are here](https://docs.gns3.com/docs/getting-started/installation/windows/#minimum-requirements).
+2. **GNS3 and GNS3 VM**: Download and install GNS3 and its VM from the [**website**](https://www.gns3.com/).
+   * Follow the [installation instructions](https://docs.gns3.com/docs/getting-started/installation/windows/#introduction).
+   * Helpful videos: [Video 1](https://www.youtube.com/watch?v=x9pGYyEqLYs), [Video 2](https://www.youtube.com/watch?v=lFEDmM_lsxI).
 3. **Ubuntu 22 Server**: Install Ubuntu 22 Server in VMware.
-   - Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
+   * Helpful [Video](https://youtu.be/Lj5qHBjSfMo?si=I5YZmZqnNqUKGdoP)
 
 ### Starting the Lab Environment
 
