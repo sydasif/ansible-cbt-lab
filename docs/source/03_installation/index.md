@@ -9,5 +9,4 @@ In this chapter, we will guide you through the installation of Ansible and show 
 
 
 01_installation
-02_net-lab
 ```

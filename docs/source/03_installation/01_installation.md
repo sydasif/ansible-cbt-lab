@@ -2,29 +2,31 @@
 
 Ansible can be installed on most Unix systems, with the only requirement being Python 2.7 or Python 3.5. Unfortunately, Windows is not officially supported as a control machine. For detailed installation instructions, refer to the Ansible documentation [**website**](https://docs.ansible.com/ansible/2.9/installation_guide/index.html). Below, we outline the steps to install Ansible on an Ubuntu machine:
 
+### Installation Steps
+
 1. **Update your system:**
 
-```bash
-sudo apt update
-```
+    ```bash
+    sudo apt update
+    ```
 
 2. **Install necessary software properties:**
 
-```bash
-sudo apt install software-properties-common
-```
+    ```bash
+    sudo apt install software-properties-common
+    ```
 
 3. **Add the Ansible repository:**
 
-```bash
-sudo apt-add-repository ppa:ansible/ansible
-```
+    ```bash
+    sudo apt-add-repository ppa:ansible/ansible
+    ```
 
 4. **Install Ansible:**
 
-```bash
-sudo apt install ansible
-```
+    ```bash
+    sudo apt install ansible
+    ```
 
 These commands will update your system, install required software properties, add the Ansible repository, and then install Ansible.
 
@@ -34,27 +36,27 @@ Ansible is updated every six months, so it's recommended to install it in a virt
 
 1. **Create a virtual environment:**
 
-```bash
-virtualenv .venv
-```
+    ```bash
+    virtualenv .venv
+    ```
 
 2. **Activate the virtual environment:**
 
-```bash
-source .venv/bin/activate
-```
+    ```bash
+    source .venv/bin/activate
+    ```
 
 3. **Install Ansible:**
 
-```bash
-python3 -m pip install ansible
-```
+    ```bash
+    python3 -m pip install ansible
+    ```
 
 4. **To exit the virtual environment:**
 
-```bash
-deactivate
-```
+    ```bash
+    deactivate
+    ```
 
 ### Verifying Ansible Installation
 
@@ -92,3 +94,5 @@ localhost | SUCCESS => {
     "ping": "pong"
 }
 ```
+
+You have successfully installed Ansible on your system. With Ansible up and running, you now have a powerful tool at your disposal for automating IT infrastructure management tasks. This setup will enable you to streamline configurations, deploy applications, and manage complex IT environments with ease. As you delve deeper into Ansible, you will discover its extensive capabilities and the efficiency it brings to your workflow. Happy automating!
