@@ -1,6 +1,6 @@
 ## Protecting Sensitive Data with Ansible Vault
 
-Ansible Vault provides a method to encrypt and manage sensitive data such as passwords. This section introduces you to the basics of Ansible Vault and how you can use encrypted variables and files in ad hoc commands and playbooks by supplying the passwords you used to encrypt them.
+Ansible Vault provides a secure method to encrypt and manage sensitive data such as passwords. This section introduces you to the basics of Ansible Vault and how you can use encrypted variables and files in ad hoc commands and playbooks by supplying the passwords you used to encrypt them.
 
 ### Using Ansible Vault
 
@@ -65,6 +65,8 @@ $ANSIBLE_VAULT;1.1;AES256
 31653433666537333664623735323335656561633063643737383230396239323335
 ```
 
+You can see the version `$ANSIBLE_VAULT;1.1` and encryption method `;AES256`. If you push this information to GitHub, no one can use it without the password.
+
 To verify the encryption, create a playbook:
 
 ```yaml
@@ -106,3 +108,92 @@ PLAY RECAP *********************************************************************
 ```
 
 The playbook runs successfully, indicating that the encrypted credentials were decrypted and used correctly.
+
+To view the encrypted file content, use the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-vault view group_vars/all.yaml 
+Vault password: 
+# Group_vars/cisco.yaml - Variables for all hosts
+ansible_user: admin
+ansible_password: cisco12
+ansible_network_os: cisco.ios.ios
+ansible_connection: ansible.netcommon.network_cli
+```
+
+Upon entering the correct password, you can see the encrypted contents in plain text. To edit the encrypted file to make changes, use `ansible-vault edit <file_name>`.
+
+That concludes the section on using Ansible Vault to protect sensitive data.
+
+## Creating a New File with Ansible Vault
+
+Creating a new file with Ansible Vault is straightforward. Ansible Vault allows you to create new encrypted files directly. This is useful when you want to start with sensitive data that should be protected from the outset.
+
+To create a new file with Ansible Vault, use the `create` command. For example, to create a new encrypted file named `secrets.yaml`, use the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-vault create secrets.yaml
+New Vault password: 
+Confirm New Vault password: 
+```
+
+You will be prompted to enter and confirm a password. Once you do, Ansible Vault will open a text editor (by default, it uses the editor defined by the `EDITOR` environment variable) where you can enter the content for your new file. After you save and exit the editor, the file will be encrypted.
+
+For example, if you add the following content:
+
+```yaml
+# secrets.yaml - Encrypted secrets
+db_user: dbadmin
+db_password: dbpassword123
+```
+
+The contents of the file will be saved and encrypted. If you view the file, it will look similar to this:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ cat secrets.yaml
+$ANSIBLE_VAULT;1.1;AES256
+62613630323966643865623639306363643131316230616539316634626263303035323131303531
+3837643662353831633137363739646235383932336437370a313235333030613734643363356637
+35333633366562396166336133653833373238393434643435636633643738636565346630363935
+```
+
+This indicates that the file is successfully encrypted.
+
+## Decrypting an Encrypted File
+
+There may be times when you need to decrypt an encrypted file. Ansible Vault provides a simple command to decrypt files.
+
+To decrypt a file, use the `decrypt` command. For example, to decrypt the `secrets.yaml` file, use the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-vault decrypt secrets.yaml
+Vault password: 
+Decryption successful
+```
+
+You will be prompted to enter the vault password. Upon successful decryption, the file will be restored to its original unencrypted form:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ cat secrets.yaml
+# secrets.yaml - Encrypted secrets
+db_user: admin
+db_password: password123
+```
+
+## Rekeying a File
+
+Rekeying a file involves changing the password used to encrypt the file. This can be useful if you suspect that the current password has been compromised or you simply want to update the security credentials.
+
+To rekey a file, use the `rekey` command. For example, to change the password of the `secrets.yaml` file, use the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-vault rekey secrets.yaml
+Vault password: 
+New Vault password: 
+Confirm New Vault password: 
+Rekey successful
+```
+
+You will be prompted to enter the current vault password, followed by the new password and a confirmation. After successful rekeying, the file will be encrypted with the new password.
+
+Rekeying ensures that your sensitive data remains protected even if the old password becomes known to unauthorized individuals. These commands and practices help maintain the security and integrity of your sensitive data when using Ansible Vault.
