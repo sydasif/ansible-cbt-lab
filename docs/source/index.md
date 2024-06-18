@@ -47,4 +47,5 @@ This quick start guide for Ansible is designed to help you get up and running wi
 10_jinja/index
 11_debug/index
 12_vault/index
+13_roles/index
 ```
