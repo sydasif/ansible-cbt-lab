@@ -1,0 +1,7 @@
+---
+- name: "PLAYBOOK - OSPF CONFIGURATION"
+  hosts: 172.16.10.14
+  gather_facts: false
+
+  roles:
+    - ospf_role
