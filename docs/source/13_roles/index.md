@@ -8,4 +8,5 @@ In this chapter, we examine the concept of Ansible roles and their importance in
 :maxdepth: 1
 
 01_intro
+02_structure
 ```
