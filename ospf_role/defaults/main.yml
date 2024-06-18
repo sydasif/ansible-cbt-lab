@@ -1,0 +1,7 @@
+---
+# defaults file for ospf_role
+TASK_ONE_NAME: "OSPF CONFIGURATION"
+TASK_TWO_NAME: "SHOW OSPF CONFIG"
+TASK_THREE_NAME: "PRINT OSPF CONFIG"
+
+ospf_template: "ospf.j2"

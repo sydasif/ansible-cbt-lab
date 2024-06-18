@@ -1,0 +1,16 @@
+---
+# tasks file for ospf_role
+
+- name: "TASK 1 - {{ TASK_ONE_NAME }}"
+  cisco.ios.ios_config:
+    src: "{{ ospf_template }}"
+
+- name: "TASK 2 - {{ TASK_TWO_NAME }}"
+  cisco.ios.ios_command:
+    commands:
+      - show run | sec ospf
+  register: ospf_config
+
+- name: "TASK 3 - {{ TASK_THREE_NAME }}"
+  ansible.builtin.debug:
+    msg: "{{ ospf_config.stdout_lines }}"
