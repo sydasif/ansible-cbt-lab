@@ -17,7 +17,7 @@ VyOS images are available for download from the official VyOS website. Ensure yo
 
 ## Installing VyOS
 
-The installation process in GNS3 is straightforward but can be lengthy. For a detailed step-by-step guide, refer to the [Running on GNS3 Blog](https://docs.vyos.io/en/equuleus/installation/virtual/gns3.html).
+The installation process in GNS3 is straightforward but can be lengthy. For a detailed step-by-step guide, refer to the [Running on GNS3](https://docs.vyos.io/en/equuleus/installation/virtual/gns3.html) blog.
 
 ## Post-Installation Configuration
 
