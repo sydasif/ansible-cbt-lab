@@ -48,4 +48,5 @@ This quick start guide for Ansible is designed to help you get up and running wi
 11_debug/index
 12_vault/index
 13_roles/index
+14_VyOS/index
 ```
