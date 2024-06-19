@@ -85,3 +85,64 @@ vyos
 With this setup, Ansible is now ready to work with a multi-vendor environment, allowing you to automate configuration tasks across both Cisco and VyOS devices.
 
 In the next sections, we will explore specific Ansible playbooks and tasks to configure and manage VyOS devices effectively.
+
+## Configuring VyOS Router Banner with Ansible
+
+Before we begin configuring the VyOS router banner using Ansible, ensure that your Ansible control node is correctly set up with the necessary inventory and group variables. With the lab environment ready, we can proceed to create and execute Ansible playbooks to automate configurations for VyOS devices.
+
+### Sample Playbook
+
+Let's create a playbook specifically to configure the banner on the VyOS router.
+
+1. Create a new playbook file named `configure_vyos_banner.yaml`:
+
+```yaml
+---
+- name: Configure VyOS Router Banner
+  hosts: vyos
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Set pre-login Banner
+      vyos.vyos.vyos_banner:
+        banner: pre-login
+        text: "Welcome to VyOS Router"
+        state: present
+
+    - name: Set post-login Banner
+      vyos.vyos.vyos_banner:
+        banner: post-login
+        text: "Authorized users only"
+        state: present
+```
+
+2. Run the playbook using the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-playbook playbook/vyos_banner.yaml
+
+PLAY [Configure VyOS Router Banner] ****************************************************
+
+TASK [Set pre-login Banner] ************************************************************
+changed: [172.16.10.15]
+
+TASK [Set post-login Banner] ***********************************************************
+changed: [172.16.10.15]
+
+PLAY RECAP *****************************************************************************
+172.16.10.15               : ok=2    changed=2    unreachable=0    failed=0    skipped=0
+```
+
+This playbook performs the following actions:
+- Sets the pre-login and post-login banners on the VyOS router.
+
+### Verifying Configuration
+
+After running the playbook, verify that the banners have been applied correctly on the VyOS router:
+
+```bash
+show system login
+```
+
+Using Ansible, you can easily configure specific aspects of your network devices, such as banners on VyOS routers. This approach allows for efficient management and maintenance of network configurations across different vendor devices.

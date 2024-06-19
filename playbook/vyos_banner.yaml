@@ -1,0 +1,19 @@
+---
+
+- name: Configure VyOS Router Banner
+  hosts: vyos
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: "Set pre-login Banner"
+      vyos.vyos.vyos_banner:
+        banner: pre-login
+        text: "Welcome to VyOS Router"
+        state: present
+
+    - name: "Set post-login Banner"
+      vyos.vyos.vyos_banner:
+        banner: post-login
+        text: "Authorized users only"
+        state: present
