@@ -135,6 +135,7 @@ PLAY RECAP *********************************************************************
 ```
 
 This playbook performs the following actions:
+
 - Sets the pre-login and post-login banners on the VyOS router.
 
 ### Verifying Configuration
