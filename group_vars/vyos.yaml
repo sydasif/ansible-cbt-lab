@@ -1,0 +1,9 @@
+---
+# Group_vars/vyos.yaml - Variables for all hosts
+
+# Username for SSH authentication
+ansible_user: vyos
+# Password for SSH authentication
+ansible_password: vyos
+# Operating system of the VyOS devices
+ansible_network_os: vyos.vyos.vyos
