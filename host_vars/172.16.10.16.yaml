@@ -1,0 +1,4 @@
+---
+
+interface: FastEthernet0/1
+description: link-to-sw1
