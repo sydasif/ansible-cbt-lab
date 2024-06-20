@@ -1,0 +1,29 @@
+---
+
+- name: Gather Facts from VyOS and Cisco Devices
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Gather facts from VyOS devices
+      when: "ansible_network_os == 'vyos.vyos.vyos'"
+      vyos.vyos.vyos_facts:
+        gather_subset: config
+      register: vyos_facts
+
+    - name: Gather facts from Cisco devices
+      when: "ansible_network_os == 'cisco.ios.ios'"
+      cisco.ios.ios_facts:
+        gather_subset: config
+      register: cisco_facts
+
+    - name: "Print Cisco Facts"
+      ansible.builtin.debug:
+        msg: "{{ cisco_facts.ansible_facts.ansible_net_config.split('\n') }}"
+      when: "ansible_network_os == 'cisco.ios.ios'"
+
+    - name: "Print VyOS Facts"
+      ansible.builtin.debug:
+        msg: "{{ vyos_facts.ansible_facts.ansible_net_config[0].split('\n') }}"
+      when: "ansible_network_os == 'vyos.vyos.vyos'"
