@@ -1,0 +1,37 @@
+---
+
+- name: Configured Interfaces of VyOS and Cisco Devices
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Merge configuration with device configuration
+      vyos.vyos.vyos_interfaces:
+        config:
+          - name: eth1
+            description: LAN-Network
+            mtu: 1500
+            enabled: true
+        state: merged
+      register: vyos_facts
+      when: "ansible_network_os == 'vyos.vyos.vyos'"
+
+    - name: Merge configuration with device configuration
+      cisco.ios.ios_interfaces:
+        config:
+          - name: "{{ interface }}"
+            description: "{{ description }}"
+            enabled: true
+      register: cisco_facts
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: "Print Cisco Facts"
+      ansible.builtin.debug:
+        msg: "{{ cisco_facts.commands }}"
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: "Print VyOS Facts"
+      ansible.builtin.debug:
+        msg: "{{ vyos_facts.commands }}"
+      when: ansible_network_os == 'vyos.vyos.vyos'

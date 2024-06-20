@@ -113,13 +113,138 @@ This updated playbook performs the following actions:
 
 By adding the `ansible.builtin.debug` tasks, you can see the gathered configuration details directly in the playbook output.
 
+## Configuring Interfaces on VyOS and Cisco Devices
 
+In this final example, we configure interfaces on all devices using the appropriate Ansible module for each vendor. This demonstrates Ansible's ability to handle multi-vendor environments efficiently.
 
-This guide has demonstrated the power of Ansible in automating network configurations for both VyOS and Cisco devices in a multi-vendor environment. We covered:
+### Sample Playbook for Configuring Interfaces
 
-- **Introduction to VyOS**: Understanding VyOS and its integration with Ansible.
-- **Installation**: Steps to install VyOS in a virtual environment.
-- **Configuration**: Using Ansible to set up banners on VyOS routers.
-- **Multi-Vendor Management**: Creating playbooks to gather facts from both VyOS and Cisco devices.
+Here is the playbook to configure interfaces on both VyOS and Cisco devices:
 
-Ansible enhances network management by providing consistency, scalability, and efficiency. By leveraging Ansible, network administrators can seamlessly manage diverse device types, ensuring robust and reliable network operations.
+```yaml
+---
+- name: Configure Interfaces of VyOS and Cisco Devices
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Merge configuration with device configuration
+      vyos.vyos.vyos_interfaces:
+        config:
+          - name: eth1
+            description: LAN-Network
+            mtu: 1500
+            enabled: true
+        state: merged
+      register: vyos_facts
+      when: "ansible_network_os == 'vyos.vyos.vyos'"
+
+    - name: Merge configuration with device configuration
+      cisco.ios.ios_interfaces:
+        config:
+          - name: "{{ interface }}"
+            description: "{{ description }}"
+            enabled: true
+      register: cisco_facts
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Print Cisco Facts
+      ansible.builtin.debug:
+        msg: "{{ cisco_facts.commands }}"
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Print VyOS Facts
+      ansible.builtin.debug:
+        msg: "{{ vyos_facts.commands }}"
+      when: ansible_network_os == 'vyos.vyos.vyos'
+```
+
+### Host Variables for Cisco Devices
+
+Since Cisco devices may have different interface naming conventions (e.g., `FastEthernet` on routers and `Ethernet` on switches), we need to use `host_vars` files for each Cisco device.
+
+#### Content of `host_vars/172.16.10.16` (Cisco Router)
+
+```yaml
+interface: FastEthernet0/1
+description: link-to-sw1
+```
+
+#### Content of `host_vars/172.16.10.17` (Cisco Switch)
+
+```yaml
+interface: Ethernet0/1
+description: link-to-pc
+```
+
+### Running the Playbook
+
+Run the playbook using the following command:
+
+```sh
+(.venv) ➜  ansible-cbt-lab git:(main) ✗ ansible-playbook playbook/multi_vendor_config.yml
+
+PLAY [Configure Interfaces of VyOS and Cisco Devices] **************************************
+
+TASK [Merge configuration with device configuration] ***************************************
+skipping: [172.16.10.17]
+skipping: [172.16.10.16]
+changed: [172.16.10.15]
+
+TASK [Merge configuration with device configuration] ***************************************
+skipping: [172.16.10.15]
+changed: [172.16.10.17]
+changed: [172.16.10.16]
+
+TASK [Print Cisco Facts] *******************************************************************
+skipping: [172.16.10.15]
+ok: [172.16.10.16] => {
+    "msg": [
+        "interface FastEthernet0/1",
+        "description link-to-sw1"
+    ]
+}
+ok: [172.16.10.17] => {
+    "msg": [
+        "interface Ethernet0/1",
+        "description link-to-pc"
+    ]
+}
+
+TASK [Print VyOS Facts] ****************************************************************
+skipping: [172.16.10.16]
+skipping: [172.16.10.17]
+ok: [172.16.10.15] => {
+    "msg": [
+        "set interfaces ethernet eth1 description 'LAN-Network'",
+        "set interfaces ethernet eth1 mtu '1500'"
+    ]
+}
+
+PLAY RECAP *****************************************************************************
+172.16.10.15               : ok=2    changed=1    unreachable=0    failed=0    skipped=2
+172.16.10.16               : ok=2    changed=1    unreachable=0    failed=0    skipped=2
+172.16.10.17               : ok=2    changed=1    unreachable=0    failed=0    skipped=2 
+```
+
+### Explanation of Playbook Output
+
+- **TASK [Merge configuration with device configuration]**: 
+  - For VyOS (172.16.10.15), the interface `eth1` was configured with the description "LAN-Network" and an MTU of 1500. This task was skipped for the Cisco devices (172.16.10.16 and 172.16.10.17).
+  - For Cisco devices, the interface configurations were applied based on the `host_vars` files. The playbook correctly identified and configured the `FastEthernet0/1` interface on the router and `Ethernet0/1` interface on the switch.
+  
+- **TASK [Print Cisco Facts]**: 
+  - Displays the configuration commands that were sent to the Cisco devices:
+    - For the router (172.16.10.16): `"interface FastEthernet0/1", "description link-to-sw1"`
+    - For the switch (172.16.10.17): `"interface Ethernet0/1", "description link-to-pc"`
+
+- **TASK [Print VyOS Facts]**: 
+  - Displays the configuration commands that were sent to the VyOS device (172.16.10.15): 
+    - `"set interfaces ethernet eth1 description 'LAN-Network'", "set interfaces ethernet eth1 mtu '1500'"`
+
+- **PLAY RECAP**: 
+  - Summary of the playbook execution:
+    - All tasks were successfully executed for each device, with the appropriate configurations applied and verified.
+
+This guide has demonstrated the power of Ansible in automating network configurations for both VyOS and Cisco devices in a multi-vendor environment. Ansible enhances network management by providing consistency, scalability, and efficiency. By using Ansible, network administrators can seamlessly manage diverse device types, ensuring robust and reliable network operations.
