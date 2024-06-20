@@ -16,7 +16,7 @@ To interact with VyOS from our Ansible control node and automate configuration t
 
 ```{figure} ../images/vyos-lab.png
 ---
-width: 75%
+width: 100%
 name: idle
 ---
 VyOS Lab Topology
@@ -37,7 +37,6 @@ Initially, our `group_vars/all.yaml` file is set up for Cisco devices only:
 ansible_user: admin
 ansible_password: cisco12
 ansible_network_os: cisco.ios.ios
-ansible_connection: ansible.netcommon.network_cli
 ```
 
 To support both Cisco and VyOS devices, we need to create separate configuration files in the `group_vars` directory.
@@ -49,7 +48,7 @@ To support both Cisco and VyOS devices, we need to create separate configuration
 ```yaml
 # Group_vars/cisco.yaml - Variables for Cisco devices
 ansible_user: admin
-ansible_password: cisco12
+ansible_password: cisco  # New password
 ansible_network_os: cisco.ios.ios
 ```
 
@@ -76,10 +75,6 @@ ansible_network_os: vyos.vyos.vyos
 
 [vyos]
 172.16.10.15  
-
-[all:children]
-cisco
-vyos
 ```
 
 With this setup, Ansible is now ready to work with a multi-vendor environment, allowing you to automate configuration tasks across both Cisco and VyOS devices.
