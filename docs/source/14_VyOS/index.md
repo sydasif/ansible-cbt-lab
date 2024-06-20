@@ -11,4 +11,5 @@ In our previous discussions, we have focused on using Ansible to automate networ
 01_intro
 02_installation
 03_lab
+04_example
 ```
