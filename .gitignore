@@ -2,3 +2,5 @@
 draft
 test_role
 .venv/
+docs/_build/
+my_book/

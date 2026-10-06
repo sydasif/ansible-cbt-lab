@@ -29,3 +29,17 @@ extensions = [
 
 html_theme = "sphinx_book_theme"
 html_static_path = ['_static']
+
+# -- Options for LaTeX/PDF output -------------------------------------------
+# Map the Unicode glyphs used in shell-prompt / directory-tree code blocks
+# to LaTeX equivalents so pdflatex can compile the book.
+latex_elements = {
+    'preamble': r'''
+\DeclareUnicodeCharacter{2500}{-}  % ─  box-drawing horizontal
+\DeclareUnicodeCharacter{2502}{|}  % │  box-drawing vertical
+\DeclareUnicodeCharacter{251C}{+}  % ├  box-drawing tee
+\DeclareUnicodeCharacter{2514}{+}  % └  box-drawing elbow
+\DeclareUnicodeCharacter{279C}{$\rightarrow$}  % ➜  heavy arrow (prompt)
+\DeclareUnicodeCharacter{2717}{$\times$}       % ✗  ballot cross
+'''
+}
